@@ -76,14 +76,17 @@ static int lastButtonPressed = HIGH;          // securing the state of the last 
 int buttonState = digitalRead(5);         
 
 if (buttonState==LOW and gameOn==false){
-  
-for (int i=0; i<15; i++){
-  lcd.setCursor(i,0);
-  lcd.print(" ");
-  delay(100);
+  lcd.clear();
+  gameOn = true;
+  score = 0;
+  lcd.setCursor(3,1);
+  lcd.write(2);
+
+for (int j=0; j<4; j++){
+  treePositions[j] = 16 +(j*4);
 }
 
-  gameOn = true;
+  
 }
 
 
@@ -129,24 +132,25 @@ if (pos==3 and dinoInAir == false){
   lcd.setCursor(1,0);
   lcd.print("...GAME OVER");
   gameOn = false;
-  treePositions[i] = 16;
-  treePositions[i+1] = 20;
-  treePositions[i+2] = 24;
-  treePositions[i+3] = 28;
-  delay(3000);
+
+  delay(1000);
       for (int i=0; i<16;i++){
         lcd.setCursor(i,1);
         lcd.print(" ");
         lcd.setCursor(i,0);
         lcd.print(" ");
-        delay(200);
+        delay(100);
         }
   lcd.setCursor(0,0);
 lcd.print("PRESS TO START");
+
+
+
+gameOn = false;
   return;
 }
 
-else if (pos==3 and dinoInAir == true){
+ if (pos==3 and dinoInAir == true){
   score++;
   lcd.setCursor(14,0);
   lcd.print(" ");
@@ -168,9 +172,7 @@ lcd.write(1);
 if (pos==0){
   lcd.setCursor(0,1);
   lcd.print(" ");
-  lcd.setCursor(15,1);
-  lcd.write(1);
-  treePositions[i]=15;
+  treePositions[i]=16;
 }
 else{
   treePositions[i]--;
