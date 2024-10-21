@@ -94,7 +94,7 @@ for (int j=0; j<4; j++){
 if (gameOn == true){
 
 lcd.setCursor(14,0);
-lcd.print("0");
+lcd.print(score);
 
 int currentMillis = millis();
 
@@ -153,7 +153,7 @@ gameOn = false;
  if (pos==3 and dinoInAir == true){
   score++;
   lcd.setCursor(14,0);
-  lcd.print(" ");
+  lcd.print("  ");
   lcd.setCursor(14,0);
   lcd.print(score);
 }
