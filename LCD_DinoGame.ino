@@ -1,6 +1,10 @@
 
 #include <LiquidCrystal_I2C.h> // I2C-LCD-Bibliothek einbinden
 
+// bugs to be fixed:
+//    proper restart of the game
+//    show the correct score
+
 // Erzeuge das LCD-Objekt mit der I2C-Adresse des LCDs (häufig 0x27 oder 0x3F)
 LiquidCrystal_I2C lcd(0x27, 16, 2); // Adresse, Anzahl der Spalten und Zeilen
 
